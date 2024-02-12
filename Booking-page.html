@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment</title>
+
+  <link rel="stylesheet" href="Booking-page-style.css">
+</head>
+<body>
+  
+  <!--
+    -Appointment
+  -->
+
+  <section class="section appoin" id="appointment" aria-label="appointment">
+
+        <div class="card-content">
+
+          <h2 class="h2 section-title">SCHEDULE A MEETING</h2>
+
+          <p class="section-text">Fill out this form and schedule your next meeting. </p>
+
+          <form action="" class="submit-to-google-sheet">
+
+            <input type="text" name="name" placeholder="Your Full Name" required class="input-field">
+
+            <input type="email" name="email" placeholder="Email Adress" required class="input-field">
+            
+             <input type="tel" name="phone" placeholder="Phone Number" required class="input-field">
+
+            <select name="category" class="input-field select"  required>
+              <option value="Select category">Select Category</option>
+              <option value="Site Conversion">Site Conversion</option>
+              <option value="Booking Platform">Booking Platform</option>
+              <option value="Full-stack Web app">Full-stack Web app</option>
+              <option value="Contact Form Build-up">Contact Form Build-up</option>
+            </select>
+           
+            <input type="date" name="date" required id="" class="input-field">
+
+            <select name="category" class="input-field select" required>
+              <option value="Choose how you would like your meeting">Choose how you would like your meeting</option>
+              <option value="Zoom Video Call">Zoom Video Call</option>
+              <option value="Phone Call">Phone Call</option>
+              <option value="Text">Text</option>
+            </select>
+
+            <textarea name="Message" cols="49" rows="10" placeholder="Write Message" required class="input-field"></textarea>
+
+            <button type="submit" class="form-btn">
+              Book Now
+            </button>
+
+          </form>
+
+          <span id="msg"></span>
+        </div>
+     
+  </section>
+
+
+
+  <!--
+    Javascript Code for backend
+  -->
+  
+</body>
+</html>

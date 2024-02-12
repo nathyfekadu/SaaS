@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio Website</title>
+
+    <link rel="stylesheet" href="./assets/css/contact-us-style.css">
+    <script src="https://kit.fontawesome.com/5742744c3c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<!--Contact Us-->
+
+    <section id="contact">
+        <h1 class="header">Contact Us</h1>
+        <div class="contact-right">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+
+                <input type="email" name="Email" placeholder="Your Email" required>
+
+                <textarea name="Message" rows="6" placeholder="Say what's on your mind" required></textarea>
+
+                <button type="submit" class="btn-3">Submit</button>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </section>
+   
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+
+
+
+
+        let sidemenu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz5BTQ8gqh-eB3UAkA16xf4zoY99JaWwqnhATucEGtEBgzRFJ97pX7K_Uq-wyi-EuJQEg/exec'
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Delivered! /n Thanks for your opinion"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },3000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+</script>
+</body>
+</html>
